@@ -90,7 +90,7 @@ export const getStaticProps = async ({ params }) => {
         gen3_species: pokemon_v2_pokemonspecies(
           where: {
             pokemon_v2_generation: { name: { _eq: "generation-i" } }
-            name: { _eq: ${params.pokemonId} }
+            id: { _eq: ${params.pokemonId} }
           }
         ) {
           name
@@ -125,7 +125,7 @@ export const getStaticProps = async ({ params }) => {
             }
           }
           pokemon_v2_evolutionchain {
-            pokemon_v2_pokemonspecies(where: {generation_id: {_eq: 1}}) {
+            pokemon_v2_pokemonspecies(where: { generation_id: { _eq: 1 } }) {
               name
             }
           }
@@ -159,10 +159,10 @@ export const getStaticPaths = async () => {
     query: gql`
       query samplePokeAPIquery {
         gen3_species: pokemon_v2_pokemonspecies(
-          order_by: {}
           where: { pokemon_v2_generation: { name: { _eq: "generation-i" } } }
+          order_by: { id: asc }
         ) {
-          name
+          id
         }
       }
     `,
@@ -172,7 +172,7 @@ export const getStaticPaths = async () => {
     paths: data.gen3_species.map((d) => {
       return {
         params: {
-          pokemonId: d.name,
+          pokemonId: d.id.toString(),
         },
       };
     }),
