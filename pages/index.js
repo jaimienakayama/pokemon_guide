@@ -21,7 +21,7 @@ export default function Home({ pokemon }) {
         <div className={styles.grid}>
           {pokemon.map((p) => {
             return (
-              <Link key={p.id} href={`/pokemon/${encodeURIComponent(p.name)}`}>
+              <Link key={p.id} href={`/pokemon/${encodeURIComponent(p.id)}`}>
                 <a href="https://nextjs.org/learn" className={styles.card}>
                   <Image
                     src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${p.id}.png`}
