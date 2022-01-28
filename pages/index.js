@@ -10,7 +10,6 @@ export default function Home({ pokemon }) {
       <Head>
         <title>Pokemon Guide!</title>
       </Head>
-
       <main className={styles.main}>
         <h1 className={styles.title}>Pokemon Guide</h1>
 
