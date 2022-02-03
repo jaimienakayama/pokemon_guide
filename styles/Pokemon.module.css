@@ -21,7 +21,6 @@
 .upperContent h1 {
   font-size: 48pt;
   margin: 10px;
-  background-color: #d3d3d3;
   border-radius: 5px;
   padding: 10px 50px;
   letter-spacing: 5px;
@@ -47,40 +46,30 @@
   font-family: "Libre Franklin", sans-serif;
   font-weight: 700;
   letter-spacing: 1px;
-  background-color: #d3d3d3;
   display: inline-block;
-  padding: 10px 40px;
   border-radius: 5px;
+  text-align: left;
+  max-width: 278px;
 }
 
-.moves {
-  text-align: center;
-}
-
-.evoLink {
+.evoLink,
+.evoLinkDisabled {
   transition: all 0.3s ease;
   display: inline-block;
-  margin: 0px 10px 20px;
+  margin-bottom: 20px;
   border: 1px solid #d3d3d3;
   padding: 10px 20px;
   border-radius: 5px;
 }
 
 .evoLinkDisabled {
-  margin: 0px 10px 20px;
+  color: #d3d3d3;
 }
-
-.gold {
-  color: #ffd700;
-  font-size: 12pt;
-  height: 15pt;
-}
-
-.evoLink:hover {
+.evoLink:hover,
+.backButton:hover {
   cursor: pointer;
-  color: #0070f3;
-  border-color: #0070f3;
-  transform: scale(1.1);
+  color: #00dcb4;
+  border-color: #00dcb4;
 }
 
 .backButton {
@@ -94,11 +83,4 @@
   font-size: 12px;
   letter-spacing: 1px;
   font-weight: 700;
-}
-
-.backButton:hover {
-  color: #0070f3;
-  border-color: #0070f3;
-  cursor: pointer;
-  transform: scale(1.1);
 }
