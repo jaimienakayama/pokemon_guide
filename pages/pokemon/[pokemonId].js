@@ -120,7 +120,7 @@ const Pokemon = ({ pokemon }) => {
             </div>
           </div>
 
-          <div className={`${styles.column} ${styles.moves}`}>
+          <div className={styles.column}>
             <div className={styles.columnTitle}>POKEMON MOVES</div>
             {pokemon.pokemon_v2_pokemons[0].pokemon_v2_pokemonmoves.map((p) => {
               return (
@@ -142,44 +142,35 @@ const Pokemon = ({ pokemon }) => {
             })}
           </div>
 
-          <div className={`${styles.column} ${styles.moves}`}>
+          <div className={styles.column}>
             <div className={styles.columnTitle}>EVOLUTION</div>
-
-            {pokemon.pokemon_v2_evolutionchain.pokemon_v2_pokemonspecies.map(
-              (p) => {
-                return (
-                  <>
-                    {p.id !== pokemon.id ? (
-                      <Link
-                        key={p.id}
-                        href={`/pokemon/${encodeURIComponent(p.id)}`}
-                        passHref
-                      >
-                        <div key={p.name}>
-                          <span className={styles.evoLink}>
-                            <strong>{p.name}</strong>
-                          </span>{" "}
+            <div>
+              {pokemon.pokemon_v2_evolutionchain.pokemon_v2_pokemonspecies.map(
+                (p) => {
+                  return (
+                    <>
+                      {p.id !== pokemon.id ? (
+                        <Link
+                          key={p.id}
+                          href={`/pokemon/${encodeURIComponent(p.id)}`}
+                          passHref
+                        >
+                          <div key={p.name}>
+                            <span className={styles.evoLink}>
+                              <strong>{p.name}</strong>
+                            </span>{" "}
+                          </div>
+                        </Link>
+                      ) : (
+                        <div className={styles.evoLinkDisabled}>
+                          <strong>{p.name}</strong>
                         </div>
-                      </Link>
-                    ) : (
-                      <div className={styles.evoLinkDisabled} key={p.name}>
-                        <FontAwesomeIcon
-                          className={styles.gold}
-                          icon={faStar}
-                        />{" "}
-                        <FontAwesomeIcon icon={faAngleDoubleRight} />{" "}
-                        <strong>{p.name}</strong>{" "}
-                        <FontAwesomeIcon icon={faAngleDoubleLeft} />{" "}
-                        <FontAwesomeIcon
-                          className={styles.gold}
-                          icon={faStar}
-                        />
-                      </div>
-                    )}
-                  </>
-                );
-              }
-            )}
+                      )}
+                    </>
+                  );
+                }
+              )}
+            </div>
           </div>
         </div>
       </div>
